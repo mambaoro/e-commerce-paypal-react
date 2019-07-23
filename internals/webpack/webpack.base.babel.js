@@ -115,7 +115,7 @@ module.exports = options => ({
       new webpack.EnvironmentPlugin({
         NODE_ENV: 'development',
         REACT_APP_PAYPAL_CLIENT_ID: JSON.stringify(
-          'Ac6MEmDd5ntGP9gECWVspdzubRifuMXAhnAM6ZfiF1_mRZ6lJMwQnmOYVLmsd01AFAecPsEWGrhVVeO_',
+          process.env.REACT_APP_PAYPAL_CLIENT_ID,
         ),
       }),
     ],
