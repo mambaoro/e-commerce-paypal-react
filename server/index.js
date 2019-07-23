@@ -1,5 +1,5 @@
 /* eslint consistent-return:0 import/order:0 */
-
+require('dotenv').config();
 const express = require('express');
 const logger = require('./logger');
 
@@ -13,6 +13,9 @@ const ngrok =
     : false;
 const { resolve } = require('path');
 const app = express();
+const cors = require('cors');
+
+app.use(cors());
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);

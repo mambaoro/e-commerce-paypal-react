@@ -8,8 +8,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import PaypalButton from '../../PaypalButton/Loadable';
 
-function CartTotal({ productProvider }) {
+function CartTotal({ productProvider, history }) {
   const { cartSubTotal, cartTax, cartTotal } = productProvider.state;
   const { clearCart } = productProvider;
   return (
@@ -38,6 +39,11 @@ function CartTotal({ productProvider }) {
               <span>total : </span>
               <strong>$ {cartTotal}</strong>
             </h5>
+            <PaypalButton
+              total={cartTotal}
+              clearCart={clearCart}
+              history={history}
+            />
           </div>
         </div>
       </div>
@@ -47,6 +53,7 @@ function CartTotal({ productProvider }) {
 
 CartTotal.propTypes = {
   productProvider: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export default CartTotal;

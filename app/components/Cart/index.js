@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import { Subscribe } from 'unstated';
 import Title from '../Title/Loadable';
@@ -15,7 +15,7 @@ import EmptyCart from './EmptyCart/Loadable';
 import CartTotal from './CartTotal/Loadable';
 import ProductProvider from '../ProductList/ProductProvider';
 
-function Cart() {
+function Cart({ history }) {
   return (
     <Subscribe to={[ProductProvider]}>
       {product => {
@@ -27,7 +27,7 @@ function Cart() {
                 <Title name="your" title="cart" />
                 <CartColumns />
                 <CartList productProvider={product} />
-                <CartTotal productProvider={product} />
+                <CartTotal productProvider={product} history={history} />
               </div>
             )) ||
               null}
@@ -39,6 +39,8 @@ function Cart() {
   );
 }
 
-Cart.propTypes = {};
+Cart.propTypes = {
+  history: PropTypes.object.isRequired,
+};
 
 export default Cart;
