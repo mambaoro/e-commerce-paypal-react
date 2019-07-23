@@ -114,11 +114,6 @@ module.exports = options => ({
       // drop any unreachable code.
       new webpack.EnvironmentPlugin({
         NODE_ENV: 'development',
-        'process.env': {
-          REACT_APP_PAYPAL_CLIENT_ID: JSON.stringify(
-            process.env.REACT_APP_PAYPAL_CLIENT_ID,
-          ),
-        },
       }),
     ],
     new Dotenv(),
