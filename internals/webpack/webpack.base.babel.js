@@ -25,7 +25,6 @@ module.exports = options => ({
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: options.babelQuery,
         },
       },
       {
@@ -115,6 +114,9 @@ module.exports = options => ({
       // drop any unreachable code.
       new webpack.EnvironmentPlugin({
         NODE_ENV: 'development',
+        REACT_APP_PAYPAL_CLIENT_ID: JSON.stringify(
+          'Ac6MEmDd5ntGP9gECWVspdzubRifuMXAhnAM6ZfiF1_mRZ6lJMwQnmOYVLmsd01AFAecPsEWGrhVVeO_',
+        ),
       }),
     ],
     new Dotenv(),
